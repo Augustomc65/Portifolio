@@ -1,16 +1,28 @@
-// Função para rolar para o topo da página
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+const en = {
+skip:"Skip to content","nav-about":"About","nav-experience":"Experience","nav-projects":"Projects","nav-skills":"Skills","nav-contact":"Contact","nav-cta":"Let's talk",
+"hero-eyebrow":"SOFTWARE DEVELOPER · BELO HORIZONTE, BR","hero-greeting":"Hello, I'm","hero-lead":"I turn ideas and needs into software solutions — focused on C#, .NET, APIs and systems integration.","hero-projects":"Explore projects","hero-contact":"Get in touch","hero-meta":"Development · Integration · Level 2 Support",availability:"Open to new opportunities","code-footer":"building useful solutions",scroll:"SCROLL TO EXPLORE",
+"strip-one":"CODE WITH PURPOSE","strip-two":"WELL-BUILT SOLUTIONS","strip-three":"CONTINUOUS GROWTH","strip-four":"CODE WITH PURPOSE",
+"about-kicker":"A LITTLE ABOUT ME","about-title":"Technology, curiosity<br>and the drive to <em>build.</em>","about-lead":"I'm an IT technician graduated from Colégio Cotemig, with hands-on experience in software development and level 2 technical support.","about-copy":"Throughout my journey, I've worked with application maintenance and evolution, API integration, data analysis and troubleshooting. I enjoy understanding how things work, finding ways to solve challenges and turning learning into meaningful contributions.","about-goal":"My goal is to keep growing as a software developer and contribute to teams that value collaboration, quality and continuous learning.","linkedin-link":"Visit my LinkedIn","fact-education":"Technical education","fact-education-detail":"IT Technician · Cotemig","fact-focus":"Main focus","fact-also":"Additional experience","fact-also-detail":"Level 2 technical support","fact-location":"Location",
+"experience-kicker":"PROFESSIONAL JOURNEY","experience-title":"Experience that<br>turns into <em>learning.</em>","experience-type":"PREVIOUS EXPERIENCE · INTERNSHIP","experience-role":"Systems Developer and Level 2 Support","experience-description":"Worked on the development and support of corporate applications, contributing to feature maintenance, service integration and technical incident analysis.","exp-item-1":"Development and maintenance of features using C# and .NET.","exp-item-2":"REST API integration and consumption, including JSON data handling.","exp-item-3":"Endpoint testing and response validation using Swagger.","exp-item-4":"SQL query analysis, business rules and data inconsistencies.","exp-item-5":"Level 2 technical support and application troubleshooting.",
+"projects-kicker":"SELECTED WORK","projects-title":"Featured <em>projects.</em>","projects-aside":"A selection of academic and personal projects that are part of my development journey.","project-pizza":"Pizzeria website","project-pizza-desc":"Academic website project focused on page structure and presenting a business online.","project-gallery":"Photo website","project-gallery-desc":"Interface experiment to organize and present visual content on a web page.","project-periodic":"Periodic table","project-periodic-desc":"Interface project to organize information in a visual reference layout.","project-login":"Sign-up and login","project-login-desc":"Academic prototype with forms, DOM manipulation and local browser storage. It does not use server-side authentication.","view-code":"View code on GitHub","projects-foot":"More projects and code on GitHub",
+"skills-kicker":"TOOLS I WORK WITH","skills-title":"Technologies &amp;<br><em>knowledge.</em>","skill-dev":"DEVELOPMENT","skill-data":"DATA &amp; TOOLS","skill-support":"SUPPORT &amp; INFRASTRUCTURE","skill-support-1":"Level 2 support","skill-support-2":"Computer networks","skill-support-3":"Hardware","skill-support-4":"Cybersecurity","cert-kicker":"CONTINUOUS LEARNING","cert-title":"Cisco Networking Academy certifications","skills-note":"Technologies and knowledge listed based on my education and practical experience.",
+"contact-kicker":"SHALL WE TALK?","contact-title":"Have an interesting<br>challenge? <em>Let's talk.</em>","contact-copy":"I'm open to learning about opportunities, exchanging experiences and talking about technology and software development.","contact-email":"Send an email","linkedin-profile":"My professional profile","footer-copy":"Built with dedication and curiosity.","back-top":"BACK TO TOP"
+};
+const langButton=document.getElementById("language-toggle");
+let language="pt";
+const translatable=[...document.querySelectorAll("[data-i18n]")];
+translatable.forEach(el=>el.dataset.pt=el.innerHTML);
+function setLanguage(next){
+ language=next;
+ document.documentElement.lang=next==="en"?"en":"pt-BR";
+ translatable.forEach(el=>{const key=el.dataset.i18n;el.innerHTML=next==="en"&&en[key]?en[key]:el.dataset.pt;});
+ langButton.textContent=next==="en"?"PT":"EN";
+ langButton.setAttribute("aria-label",next==="en"?"Mudar idioma para português":"Switch language to English");
 }
-
-
-let trilho = document.getElementById('trilho')
-trilho.addEventListener('click', ()=> {
-    trilho.classList.toggle('dark')
-    document.body.classList.toggle('dark');
-    document.querySelector('.header').classList.toggle('dark');
-    document.querySelector('footer').classList.toggle('dark');
-} )
+langButton.addEventListener("click",()=>setLanguage(language==="pt"?"en":"pt"));
+const menuButton=document.getElementById("menu-toggle"),nav=document.getElementById("main-nav");
+menuButton.addEventListener("click",()=>{const open=menuButton.getAttribute("aria-expanded")==="true";menuButton.setAttribute("aria-expanded",String(!open));nav.classList.toggle("is-open",!open);});
+nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{nav.classList.remove("is-open");menuButton.setAttribute("aria-expanded","false");}));
+document.getElementById("current-year").textContent=new Date().getFullYear();
+if("IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));}
+else document.querySelectorAll(".reveal").forEach(el=>el.classList.add("is-visible"));
