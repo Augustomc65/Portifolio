@@ -8,7 +8,8 @@ API REST para organizar chamados de suporte técnico, com fluxo de atendimento, 
 - Filtrar chamados por status.
 - Alterar status do atendimento.
 - Registrar solicitante, prioridade e datas.
-- Consultar resumo da fila por situação.
+- Calcular prazo de SLA automaticamente conforme a prioridade (4h, 8h, 24h ou 48h).
+- Consultar resumo da fila, incluindo chamados com SLA vencido.
 - Persistir dados localmente com SQLite e Entity Framework Core.
 
 ## Tecnologias
