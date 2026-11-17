@@ -6,8 +6,12 @@ Portfólio pessoal de Augusto Mota Camargos, desenvolvido com HTML, CSS e JavaSc
 - Apresentação profissional em português e inglês
 - Experiência em desenvolvimento de sistemas e suporte técnico Nível 2
 - Projetos acadêmicos e pessoais
+- Quatro APIs autorais em C#/.NET: TicketFlow, FinanceFlow, StockWise e TaskBoard
 - Tecnologias, conhecimentos e certificações Cisco Networking Academy
 - Contatos: e-mail, LinkedIn, GitHub e WhatsApp
+
+## Projetos Backend
+Consulte [`projects/README.md`](./projects/README.md) para visão geral, funcionalidades, instruções de execução e referências públicas utilizadas como inspiração de arquitetura.
 
 ## Tecnologias
 - HTML5
