@@ -56,7 +56,14 @@ app.MapPost("/api/tickets", async (CreateTicketRequest request, TicketDbContext 
         Requester = request.Requester.Trim(),
         Priority = request.Priority,
         Status = "Open",
-        CreatedAt = DateTimeOffset.UtcNow
+        CreatedAt = DateTimeOffset.UtcNow,
+        SlaDueAt = DateTimeOffset.UtcNow.AddHours(request.Priority switch
+        {
+            "Critical" => 4,
+            "High" => 8,
+            "Medium" => 24,
+            _ => 48
+        })
     };
 
     db.Tickets.Add(ticket);
@@ -92,7 +99,8 @@ app.MapGet("/api/tickets/summary", async (TicketDbContext db) =>
         inProgress = tickets.Count(ticket => ticket.Status == "InProgress"),
         waitingForUser = tickets.Count(ticket => ticket.Status == "WaitingForUser"),
         resolved = tickets.Count(ticket => ticket.Status == "Resolved"),
-        closed = tickets.Count(ticket => ticket.Status == "Closed")
+        closed = tickets.Count(ticket => ticket.Status == "Closed"),
+        overdue = tickets.Count(ticket => ticket.Status != "Closed" && ticket.SlaDueAt < DateTimeOffset.UtcNow)
     });
 });
 
@@ -112,6 +120,7 @@ public sealed class SupportTicket
     public string Priority { get; set; } = "Medium";
     public string Status { get; set; } = "Open";
     public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset SlaDueAt { get; set; }
     public DateTimeOffset? ClosedAt { get; set; }
 }
 
