@@ -36,3 +36,21 @@ body{background:var(--paper);color:var(--ink)}
 .skip-link{background:#f5f3fa;color:#15121d}
 .menu-toggle span{background:var(--ink)}
 @media(max-width:650px){.navigation{background:#111018;border-color:var(--line)}.hero-aside{border-top-color:var(--line)}}
+
+
+/* Consistent interaction system: violet buttons and violet hover states. */
+:root{--violet:#8b5cf6;--violet-hover:#a78bfa;--violet-deep:#6d28d9}
+.button-link{background:var(--violet);color:#fff;border:1px solid var(--violet);transition:background .2s,border-color .2s,color .2s,transform .2s,box-shadow .2s}
+.button-link:hover,.button-link:focus-visible{background:var(--violet-hover);border-color:var(--violet-hover);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.25)}
+.header-contact{background:var(--violet);border-color:var(--violet);color:#fff!important}
+.header-contact:hover,.header-contact:focus-visible{background:var(--violet-hover);border-color:var(--violet-hover);color:#fff!important;box-shadow:0 8px 22px rgba(139,92,246,.24)}
+.navigation a,.simple-link,.social-links a,.footer a,.github-note a,.project-code-link,.email-link,.project-arrow{transition:color .2s,border-color .2s,background .2s,transform .2s}
+.navigation a:hover,.navigation a:focus-visible,.simple-link:hover,.simple-link:focus-visible,.social-links a:hover,.social-links a:focus-visible,.footer a:hover,.footer a:focus-visible,.github-note a:hover,.project-code-link:hover,.email-link:hover,.project-arrow:hover{color:var(--violet-hover);border-color:var(--violet-hover)}
+.language-toggle:hover,.language-toggle:focus-visible{color:var(--violet-hover)}
+.project-preview,.project-placeholder{transition:border-color .2s,box-shadow .2s}
+.project-row:has(.project-preview:hover) .project-preview,.project-preview:focus-visible{outline:1px solid var(--violet);outline-offset:3px}
+.whatsapp-float{background:#20b968;color:#fff;transition:background .2s,transform .2s,box-shadow .2s}
+.whatsapp-float:hover,.whatsapp-float:focus-visible{background:var(--violet);color:#fff;box-shadow:0 10px 28px rgba(139,92,246,.32);transform:translateY(-3px)}
+.menu-toggle:hover span,.menu-toggle:focus-visible span{background:var(--violet-hover)}
+:where(a,button):focus-visible{outline:2px solid var(--violet-hover);outline-offset:4px}
+::selection{background:rgba(139,92,246,.35);color:#fff}
