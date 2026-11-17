@@ -64,3 +64,15 @@ body,header.header,main,main>section,.hero,.about,.projects,.contact,.footer{bac
 h1,h2,h3,h4,strong,.hero-role,.aside-note p,.aside-detail p,.about-facts strong,.experience-heading h2,.skill-group h3,.project-description h3,.email-link{color:#fff!important}
 p,.role,.experience-date,.hero-intro,.about-columns p,.experience-summary,.experience-list li,.project-description p,.projects-intro>p,.skill-group p,.certifications p,.contact-location,.footer p,.footer>a:last-child{color:#c9c4d2!important}
 .navigation a,.simple-link,.social-links a,.github-note,.experience-tools span,.project-stack span{color:#e5e1eb!important}
+
+/* Typography refresh: Manrope with stronger weights */
+:root{--sans:"Manrope",Arial,sans-serif;--serif:"Manrope",Arial,sans-serif}
+body{font-family:"Manrope",Arial,sans-serif;font-weight:500;letter-spacing:-.015em}
+h1,h2,h3,h4,.wordmark,.hero-role,.experience-heading h2,.project-description h3,.skill-group h3{font-family:"Manrope",Arial,sans-serif;font-weight:800;letter-spacing:-.045em}
+h1{font-weight:800;letter-spacing:-.065em}
+.about-content h2,.projects-intro h2,.skills-content>h2,.contact-content h2{font-weight:800;letter-spacing:-.05em}
+.about-content h2 em,.projects-intro h2 em,.skills-content>h2 em,.contact-content h2 em,.aside-note p{font-family:"Manrope",Arial,sans-serif;font-style:normal;font-weight:800}
+.navigation a,.header-contact,.button-link,.whatsapp-float,.social-links a,.simple-link,.email-link{font-weight:700}
+.overline,.eyebrow,.section-label,.hero-bottom,.aside-detail>span,.project-number,.certifications>span,.about-facts span{font-weight:800}
+.hero-intro,.about-columns p,.experience-summary,.experience-list li,.project-description p,.skill-group p,.certifications p{font-weight:500}
+.project-stack span,.experience-tools span,.footer p,.footer>a:last-child{font-weight:600}
