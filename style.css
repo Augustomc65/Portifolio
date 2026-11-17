@@ -76,3 +76,8 @@ h1{font-weight:800;letter-spacing:-.065em}
 .overline,.eyebrow,.section-label,.hero-bottom,.aside-detail>span,.project-number,.certifications>span,.about-facts span{font-weight:800}
 .hero-intro,.about-columns p,.experience-summary,.experience-list li,.project-description p,.skill-group p,.certifications p{font-weight:500}
 .project-stack span,.experience-tools span,.footer p,.footer>a:last-child{font-weight:600}
+
+
+/* One consistent typeface for every element: Arial */
+:root{--sans:Arial,Helvetica,sans-serif;--serif:Arial,Helvetica,sans-serif}
+html,body,body *{font-family:Arial,Helvetica,sans-serif!important}
