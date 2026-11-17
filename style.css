@@ -54,3 +54,13 @@ body{background:var(--paper);color:var(--ink)}
 .menu-toggle:hover span,.menu-toggle:focus-visible span{background:var(--violet-hover)}
 :where(a,button):focus-visible{outline:2px solid var(--violet-hover);outline-offset:4px}
 ::selection{background:rgba(139,92,246,.35);color:#fff}
+
+/* FORCE DARK PAGE BACKGROUNDS — avoid any light section inherited from old theme */
+html,body{background:#09090d!important;color:#fff!important;color-scheme:dark}
+body,header.header,main,main>section,.hero,.about,.projects,.contact,.footer{background-color:#09090d!important;color:#fff!important}
+.experience{background-color:#101014!important;color:#fff!important}
+.skills{background-color:#14121b!important;color:#fff!important}
+.header,.section-block,.hero-bottom,.experience-heading,.experience-tools,.skills-columns,.skill-group,.about-facts,.footer{border-color:#302a3a!important}
+h1,h2,h3,h4,strong,.hero-role,.aside-note p,.aside-detail p,.about-facts strong,.experience-heading h2,.skill-group h3,.project-description h3,.email-link{color:#fff!important}
+p,.role,.experience-date,.hero-intro,.about-columns p,.experience-summary,.experience-list li,.project-description p,.projects-intro>p,.skill-group p,.certifications p,.contact-location,.footer p,.footer>a:last-child{color:#c9c4d2!important}
+.navigation a,.simple-link,.social-links a,.github-note,.experience-tools span,.project-stack span{color:#e5e1eb!important}
